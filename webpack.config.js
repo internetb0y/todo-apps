@@ -1,6 +1,7 @@
 const path = require('path')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
-const common = {
+const config = {
     mode: 'none',
     entry: './src/scripts/index.js',
     output: {
@@ -9,4 +10,4 @@ const common = {
     }
 }
 
-module.exports = common
+module.exports = config
