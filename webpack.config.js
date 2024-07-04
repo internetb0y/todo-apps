@@ -3,6 +3,11 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
     mode: 'development',
+    devServer: {
+        open: true,
+        host: 'localhost',
+        port: '9000'
+    },
     entry: './src/scripts/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
