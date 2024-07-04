@@ -1,7 +1,7 @@
 {
   "name": "todo-apps",
   "version": "1.0.0",
-  "description": "Todo Apps",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
