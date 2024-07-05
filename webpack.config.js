@@ -2,7 +2,7 @@ const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
-    mode: 'development',
+    mode: 'none',
     devServer: {
         open: true,
         host: 'localhost',
