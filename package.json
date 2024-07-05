@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start-dev": "webpack-dev-server"
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "Aji",
