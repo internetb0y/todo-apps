@@ -13,6 +13,21 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
+    module: {
+        rules: [
+            {
+                test: '/\.css$/',
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    }
+                ]
+            }
+        ]
+    },
     plugins: [
         new HTMLWebpackPlugin({
             title: 'Todo Apps',
