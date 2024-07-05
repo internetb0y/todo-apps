@@ -31,7 +31,7 @@ const config = {
     plugins: [
         new HTMLWebpackPlugin({
             title: 'Todo Apps',
-            template: './src/template/index.html',
+            template: './src/template/template.html',
             filename: 'index.html'
         })
     ]
