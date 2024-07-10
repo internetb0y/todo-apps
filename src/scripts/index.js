@@ -1,4 +1,5 @@
 // Styles
-import '../styles/index.css'
+import '../styles/main.css'
 
 // Components
+import './views/components/navbar'
