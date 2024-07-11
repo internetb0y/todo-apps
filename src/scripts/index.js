@@ -2,4 +2,4 @@
 import '../styles/main.css'
 
 // Components
-import './views/components/navbar'
+import './views/components/navigation-bar'
