@@ -88,7 +88,7 @@ class Navbar extends HTMLElement {
                     </a>
                     <ul>
                         <li> 
-                            <button class="info" id="info">
+                            <button class="info" id="open-info">
                                 <i class="fa-solid fa-info"></i>
                             </button>
                         </li>
