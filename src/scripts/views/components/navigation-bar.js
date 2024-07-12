@@ -55,6 +55,7 @@ class Navbar extends HTMLElement {
                 }
 
                 .info {
+                    cursor: pointer;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -87,9 +88,9 @@ class Navbar extends HTMLElement {
                     </a>
                     <ul>
                         <li> 
-                            <a href="#" class="info">
+                            <button class="info" id="info">
                                 <i class="fa-solid fa-info"></i>
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </nav>
