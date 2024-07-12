@@ -1,10 +1,10 @@
 class Navbar extends HTMLElement {
     constructor () {
         super()
-        this.render()
+        this.connectedCallback()
     }
 
-    render () {
+    connectedCallback () {
         const style = `
             <style>
                 header {
