@@ -5,7 +5,7 @@ class Navbar extends HTMLElement {
     }
 
     render () {
-        this.innerHTML = `
+        const style = `
             <style>
                 header {
                     min-width: 100vw;
@@ -16,7 +16,7 @@ class Navbar extends HTMLElement {
 
                 .navbar {
                     display: flex;
-                    flex-flow: row;
+                    flex-direction: row;
                     justify-content: space-around;
                     align-items: center;
                     padding: 8px 0;
@@ -74,7 +74,11 @@ class Navbar extends HTMLElement {
                     color: #232946;
                 }
             </style>
+        `
 
+        this.innerHTML = `
+            ${style}
+            
             <header>
                 <nav class="navbar">
                     <a href="index.html">
