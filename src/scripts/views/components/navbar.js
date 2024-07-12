@@ -99,4 +99,4 @@ class Navbar extends HTMLElement {
     }
 }
 
-customElements.define('navigation-bar', Navbar)
+customElements.define('top-content', Navbar)
