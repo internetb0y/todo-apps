@@ -1,7 +1,7 @@
 class Navbar extends HTMLElement {
     constructor () {
-        super()
-        this.connectedCallback()
+        super();
+        this.connectedCallback();
     }
 
     connectedCallback () {
@@ -70,12 +70,12 @@ class Navbar extends HTMLElement {
                 }
 
                 .info:hover {
-                    border: 2px solid #232946;
+                    border: 2px solid #121629;
                     background-color: #eebbc3;
                     color: #232946;
                 }
             </style>
-        `
+        `;
 
         this.innerHTML = `
             ${style}
@@ -95,8 +95,8 @@ class Navbar extends HTMLElement {
                     </ul>
                 </nav>
             </header>
-        `
+        `;
     }
 }
 
-customElements.define('top-content', Navbar)
+customElements.define('top-content', Navbar);
