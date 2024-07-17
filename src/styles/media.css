@@ -1,0 +1,23 @@
+@media only screen and (max-width: 500px) {
+    main {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    main {
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 160px) {
+    main {
+        width: 155px;
+    }
+}
+
+@media only screen and (max-width: 155px) {
+    main {
+        width: 150px;
+    }
+}

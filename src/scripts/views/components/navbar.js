@@ -5,6 +5,14 @@ class Navbar extends HTMLElement {
     }
 
     connectedCallback () {
+        const media = `
+            <style>
+                @media only screen and (max-width: 320px) {
+                    
+                }
+            </style>
+        `;
+
         const style = `
             <style>
                 header {
@@ -82,7 +90,7 @@ class Navbar extends HTMLElement {
             
             <header>
                 <nav class="navbar">
-                    <a href="index.html">
+                    <a href="/">
                         <p class="icon"> Todo </p>
                         <p class="icon"> Apps </p>
                     </a>
@@ -95,6 +103,8 @@ class Navbar extends HTMLElement {
                     </ul>
                 </nav>
             </header>
+
+            ${media}
         `;
     }
 }
