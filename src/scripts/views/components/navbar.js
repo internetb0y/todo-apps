@@ -8,7 +8,27 @@ class Navbar extends HTMLElement {
         const media = `
             <style>
                 @media only screen and (max-width: 320px) {
-                    
+                    .icon {
+                        font-size: 25px;
+                    }
+
+                    .info {
+                        min-width: 38px;
+                        min-height: 38px;
+                        font-size: 18px;
+                    }
+                }
+
+                @media only screen and (max-width: 160px) {
+                    .icon {
+                        font-size: 20px;
+                    }
+
+                    .info {
+                        min-width: 33px;
+                        min-height: 33px;
+                        font-size: 13px;
+                    }
                 }
             </style>
         `;
@@ -75,6 +95,7 @@ class Navbar extends HTMLElement {
                     border-radius: 50%;
                     background-color: #232946;
                     color: #fffffe;
+                    transition: 0.5s;
                 }
 
                 .info:hover {

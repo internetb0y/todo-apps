@@ -11,6 +11,10 @@
 }
 
 @media only screen and (max-width: 160px) {
+    header {
+        width: 150px;
+    }
+    
     main {
         width: 155px;
     }
