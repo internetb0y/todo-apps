@@ -40,10 +40,12 @@ dialog.innerHTML = `
     ${style}
 
     <article class="dialog-container">
-        <section>
-            <button id="close-info">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+        <button id="close-info">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    
+        <section class="information">
+            <h2> Information </h2>
         </section>
     </article>
     `;

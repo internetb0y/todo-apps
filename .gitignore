@@ -1,4 +1,4 @@
-# ignore all files in "node_modules" directory
-node_modules/
+#dependecies
+/node_modules
 
-src/backup.txt
+#misc

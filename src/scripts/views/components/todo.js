@@ -82,7 +82,85 @@ class Todo extends HTMLElement {
         const mediaTodo = `
             <style>
                 @media only screen and (max-width: 980px) {
+                    section > ul {
+                        width: 620px;
+                    }
+                }
+
+                @media only screen and (max-width: 780px) {
+                    section > ul {
+                        width: 520px;
+                    }
+                }
+
+                @media only screen and (max-width: 680px) {
+                    section > ul {
+                        width: 470px;
+                    }
+                }
+
+                @media only screen and (max-width: 580px) {
+                    section > ul {
+                        width: 350px;
+                    }
+                }
+
+                @media only screen and (max-width: 480px) {                   
+                    section > ul {
+                        width: 295px;
+                    }
+
+                    section > ul > li {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    section > ul > li > p {
+                        text-align: center;
+                    }
+                }
+
+                @media only screen and (max-width: 320px) {                   
+                    section > ul {
+                        width: 250px;
+                    }
+                }
+
+                @media only screen and (max-width: 260px) {
+                    span {
+                        width: 195px;
+                    }    
                     
+                    span > h2 {
+                        font-size: 30px;
+                    }
+
+                    section > ul {
+                        width: 195px;
+                    }
+                }
+
+                @media only screen and (max-width: 200px) {
+                    span {
+                        width: 144px;
+                    }    
+                    
+                    span > h2 {
+                        font-size: 25px;
+                    }
+
+                    section > ul {
+                        width: 144px;
+                    }
+
+                    section > ul > li > p {
+                        font-size: 30px;
+                    }
+
+                    .btn-progress > button, .btn-complete > button {
+                        margin: 5px;
+                    }
                 }
             </style>
         `;
@@ -175,7 +253,8 @@ class Todo extends HTMLElement {
                 }
 
                 span {
-                    width: 725px;
+                    width: 100%;
+                    transition: 0.5s;
                 }
 
                 span > h2 {
@@ -192,15 +271,17 @@ class Todo extends HTMLElement {
                     border-radius: 15px;
                     background-color: #d4939d;
                     color: #fffffe;
+                    transition: 0.5s;
                 }
 
                 section > ul {
                     width: 725px;
+                    transition: 0.5s;
                 }
 
                 section > ul > li {
                     display: flex;
-                    flex-direction: row;
+                    flex-flow: row wrap;
                     justify-content: space-between;
                     align-items: center;
                     font-size: 38px;
@@ -266,7 +347,7 @@ class Todo extends HTMLElement {
 
                     <ul>
                         <li>
-                            <p> One </p>
+                            <p> Jogging </p>
 
                             <section class="btn-progress">
                                 <button type="button" id="edit-todo"> 
@@ -288,7 +369,7 @@ class Todo extends HTMLElement {
 
                     <ul>
                         <li>
-                            <p> One </p>
+                            <p> Reading Book </p>
 
                             <section class="btn-complete">
                                 <button type="button" id="undo-todo"> 
