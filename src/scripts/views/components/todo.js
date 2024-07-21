@@ -147,7 +147,7 @@ class Todo extends HTMLElement {
                     }    
                     
                     span > h2 {
-                        font-size: 25px;
+                        font-size: 23px;
                     }
 
                     section > ul {

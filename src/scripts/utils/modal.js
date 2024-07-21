@@ -1,12 +1,18 @@
 const style = `
     <style>
         dialog {
+            width: 550px; 
+            padding: 8px;
             left: 50%;
             top: 50%;
             translate: -50% -50%;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
             border: 3px solid #121629;
-            box-shadow: -8px 8px #fffffe;
-            background-color: #232946;
+            border-radius: 10px;
+            box-shadow: 0 8px #121629;
+            background-color: #fffffe;
         }
 
         dialog::backdrop {
@@ -20,7 +26,23 @@ const style = `
             align-items: center;
         }
 
-        #close-info {
+        .dialog-navbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border-bottom: 3px solid #121629;
+        }
+
+        .dialog-navbar > h2 {
+            padding: 0 5px;
+            font-size: 28px;
+            border-left: 5px solid #d4939d;
+            color: #232946;
+        }
+
+        .dialog-navbar > #close-info {
             cursor: pointer;
             display: flex;
             justify-content: center;
@@ -28,9 +50,21 @@ const style = `
             min-width: 44px;
             min-height: 44px;
             box-sizing: border-box;
-            font-size: 20px;
-            background-color: #b8c1ec00;
-            color: #fffffe;
+            font-size: 30px;
+            border: none;
+            background-color: #fffffe;
+            color: #232946;
+        }
+
+        .dialog-navbar > #close-info:hover {
+            color: #d4939d;
+        }
+
+        .information {
+            width: 100%;
+            margin: 5px 0;
+            padding: 5px 0;
+            color: #232946;
         }
     </style>
     `;
@@ -40,12 +74,16 @@ dialog.innerHTML = `
     ${style}
 
     <article class="dialog-container">
-        <button id="close-info">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-    
+        <section class="dialog-navbar">
+            <h2> About </h2>    
+            
+            <button id="close-info">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </section>
+
         <section class="information">
-            <h2> Information </h2>
+            <p> Paragraph </p>
         </section>
     </article>
     `;
