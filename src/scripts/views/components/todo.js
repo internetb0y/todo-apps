@@ -8,71 +8,83 @@ class Todo extends HTMLElement {
         const mediaForm = `
             <style>
                 @media only screen and (max-width: 980px) {
-                    form > #value-todo {
-                        width: 550px;
+                    .container-formulir {
+                        width: 630px;
+                    }
+                    
+                    .formulir > .value {
+                        width: 500px;
                     }
                 }
 
                 @media only screen and (max-width: 780px) {
-                    form > #value-todo {
-                        width: 450px;
+                    .container-formulir {
+                        width: 530px;
                     }
-                }
-
-                @media only screen and (max-width: 680px) {
-                    form > #value-todo {
+                
+                    .formulir > .value {
                         width: 400px;
                     }
                 }
 
+                @media only screen and (max-width: 680px) {
+                    .container-formulir {
+                        width: 475px;
+                    }
+
+                    .formulir > .value {
+                        width: 370px;
+                    }
+                }
+
                 @media only screen and (max-width: 580px) {
-                    form > #value-todo {
-                        width: 280px;
+                    .container-formulir {
+                        width: 360px;
+                    }
+
+                    .formulir > .value {
+                        width: 260px;
                     }
                 }
 
                 @media only screen and (max-width: 480px) {
-                    form {
+                    .container-formulir {
                         width: 300px;
                     }
-                    
-                    form > #value-todo {
-                        width: 260px;
-                    }
 
-                    form > #add-todo {
-                        margin: 0 0 15px 0;
+                    .formulir > .value {
+                        width: 260px;
                     }
                 }
 
                 @media only screen and (max-width: 320px) {
-                    form {
-                        width: 260px;
+                    .container-formulir {
+                        width: 255px;
                     }
                     
-                    form > #value-todo {
+                    .formulir > .value {
                         width: 230px;
                     }
                 }
 
                 @media only screen and (max-width: 260px) {
-                    form {
+                    .container-formulir {
                         width: 200px;
                     }
                     
-                    form > #value-todo {
+                    .formulir > .value {
                         width: 180px;
                         font-size: 30px;
                     }
                 }
 
                 @media only screen and (max-width: 200px) {
-                    form {
+                    .container-formulir {
                         width: 150px;
                     }
                     
-                    form > #value-todo {
-                        width: 125px;
+                    .formulir > .value {
+                        width: 130px;
                         font-size: 20px;
                     }
                 }
@@ -82,83 +94,83 @@ class Todo extends HTMLElement {
         const mediaTodo = `
             <style>
                 @media only screen and (max-width: 980px) {
-                    section > ul {
+                    .container-todo > .lists {
                         width: 620px;
                     }
                 }
 
                 @media only screen and (max-width: 780px) {
-                    section > ul {
+                    .container-todo > .lists {
                         width: 520px;
                     }
                 }
 
                 @media only screen and (max-width: 680px) {
-                    section > ul {
+                    .container-todo > .lists {
                         width: 470px;
                     }
                 }
 
                 @media only screen and (max-width: 580px) {
-                    section > ul {
+                    .container-todo > .lists {
                         width: 350px;
                     }
                 }
 
                 @media only screen and (max-width: 480px) {                   
-                    section > ul {
+                    .container-todo > .lists {
                         width: 295px;
                     }
 
-                    section > ul > li {
+                    .container-todo > .lists > .list {
                         display: flex;
                         justify-content: center;
                         align-items: center;
                     }
 
-                    section > ul > li > p {
+                    .container-todo > .lists > .list > .list-title {
                         text-align: center;
                     }
                 }
 
                 @media only screen and (max-width: 320px) {                   
-                    section > ul {
+                    .container-todo > .lists {
                         width: 250px;
                     }
                 }
 
                 @media only screen and (max-width: 260px) {
-                    span {
+                    .header-todo {
                         width: 195px;
-                    }    
+                    }
                     
-                    span > h2 {
+                    .header-todo > h2 {
                         font-size: 30px;
                     }
 
-                    section > ul {
+                    .container-todo > .lists {
                         width: 195px;
                     }
                 }
 
                 @media only screen and (max-width: 200px) {
-                    span {
+                    .header-todo {
                         width: 144px;
                     }    
                     
-                    span > h2 {
+                    .header-todo > h2 {
                         font-size: 23px;
                     }
 
-                    section > ul {
+                    .container-todo > .lists {
                         width: 144px;
                     }
 
-                    section > ul > li > p {
+                    .container-todo > .lists > .list > .list-title {
                         font-size: 30px;
                     }
 
-                    .btn-progress > button, .btn-complete > button {
+                    .container-button > button {
                         margin: 5px;
                     }
                 }
@@ -169,7 +181,7 @@ class Todo extends HTMLElement {
             <style>
                 main {
                     display: flex;
-                    flex-flow: column nowrap;
+                    flex-direction: column;
                     justify-content: center;
                     align-items: center;
                     min-width: 100vw;
@@ -177,67 +189,79 @@ class Todo extends HTMLElement {
                     background-color: #d4d8f0;
                 }
 
-                form {
+                .container-formulir {
                     display: flex;
-                    flex-flow: row wrap;
                     justify-content: center;
                     align-items: center;
-                    width: auto;
+                    width: 735px;
                     height: auto;
                     margin: 25px 0;
                     border: 3px solid #121629;
                     border-radius: 10px;
-                    background-color: #b8c1ec;
                     box-shadow: 0 7px #121629;
+                    background-color: #b8c1ec;
                     transition: 0.5s;
                 }
 
-                form > #value-todo {
-                    width: 650px;
+                .formulir {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                    background-color: #b8c1ec;
+                    transition: 0.5s;
+                }
+
+                .formulir > .value {
+                    width: 600px;
+                    margin: 15px 10px;
+                    padding: 5px 10px;
+                    border: 3px solid #121629;
+                    border-radius: 15px;
+                    box-shadow: 0 7px #121629;
                     font-size: 38px;
                     font-family: 'Roboto';
                     font-style: normal;
                     font-weight: 700;
-                    padding: 5px 10px;
-                    margin: 15px 10px;
-                    border: 3px solid #121629;
-                    border-radius: 15px;
                     background-color: #fffffe;
-                    box-shadow: 0 7px #121629;
                     transition: 0.5s;
                 }
 
-                form > #value-todo:focus {
-                    outline: 0;
+                .formulir > .value:focus {
                     border: 3px solid #d4939d;
                     box-shadow: 0 7px #d4939d;
+                    outline: 0;
                 }
 
-                form > #add-todo {
+                .formulir > .btn-add {
                     cursor: pointer;
                     display: flex;
+                    flex-direction: row;
                     justify-content: center;
                     align-items: center;
                     min-width: 44px;
                     min-height: 44px;
-                    margin: 15px 10px 15px 0;
+                    margin: 15px 10px 15px 10px;
                     padding: 5px 10px;
-                    font-size: 22px;
-                    box-sizing: border-box;
                     border: 3px solid #121629;
                     border-radius: 15px;
-                    background-color: #eebbc3;
                     box-shadow: 0 7px #121629;
+                    box-sizing: border-box;
+                    font-size: 22px;
+                    background-color: #eebbc3;
                 }
 
-                form > #add-todo:active {
+                .formulir > .btn-add:active {
                     translate: 0 5px;
                     box-shadow: 0 2px #121629;
                 }
 
                 /* Todo Progress */
 
-                .progress-todo, .complete-todo {
+                .container-todo {
                     display: flex;
                     flex-flow: column wrap;
                     justify-content: center;
@@ -247,65 +271,65 @@ class Todo extends HTMLElement {
                     margin: 25px 0;
                     border: 3px solid #121629;
                     border-radius: 10px;
-                    background-color: #b8c1ec;
                     box-shadow: 0 7px #121629;
+                    background-color: #b8c1ec;
                     transition: 0.5s;
                 }
 
-                span {
+                .header-todo {
                     width: 100%;
                     transition: 0.5s;
                 }
 
-                span > h2 {
+                .header-todo > h2 {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    margin: 15px 10px;
+                    padding: 5px 10px;
+                    border: 3px solid #121629;
+                    border-radius: 15px;
                     font-size: 38px;
                     font-family: 'Roboto';
                     font-style: normal;
                     font-weight: 700;
-                    padding: 5px 10px;
-                    margin: 15px 10px;
-                    border: 3px solid #121629;
-                    border-radius: 15px;
                     background-color: #d4939d;
                     color: #fffffe;
                     transition: 0.5s;
                 }
 
-                section > ul {
+                .container-todo > .lists {
                     width: 725px;
                     transition: 0.5s;
                 }
 
-                section > ul > li {
+                .container-todo > .lists > .list {
                     display: flex;
                     flex-flow: row wrap;
                     justify-content: space-between;
                     align-items: center;
+                    margin: 15px 10px;
+                    padding: 5px 10px;
+                    border: 3px solid #121629;
+                    border-radius: 15px;
+                    box-shadow: 0 7px #121629;
                     font-size: 38px;
                     font-family: 'Roboto';
                     font-style: normal;
                     font-weight: 700;
-                    padding: 5px 10px;
-                    margin: 15px 10px;
-                    list-style: none;
-                    border: 3px solid #121629;
-                    border-radius: 15px;
                     background-color: #fffffe;
-                    box-shadow: 0 7px #121629;
                     transition: 0.5s;
+                    list-style: none;
                 }
 
-                .btn-progress, .btn-complete {
+                .container-button {
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
                     align-items: center;
                 }
 
-                .btn-progress > button, .btn-complete > button {
+                .container-button > button {
                     cursor: pointer;
                     display: flex;
                     justify-content: center;
@@ -314,15 +338,15 @@ class Todo extends HTMLElement {
                     min-height: 44px;
                     margin: 15px 10px;
                     padding: 5px 10px;
-                    font-size: 22px;
-                    box-sizing: border-box;
                     border: 3px solid #121629;
                     border-radius: 15px;
-                    background-color: #eebbc3;
                     box-shadow: 0 7px #121629;
+                    box-sizing: border-box;
+                    font-size: 22px;
+                    background-color: #eebbc3;
                 }
 
-                .btn-progress > button:active, .btn-complete > button:active {
+                .container-button > button:active {
                     translate: 0 5px;
                     box-shadow: 0 2px #121629;
                 }
@@ -333,28 +357,30 @@ class Todo extends HTMLElement {
             ${style}
             
             <main>
-                <form>
-                    <input type="text" id="value-todo" placeholder="Type Here"/>
-                    <button type="button" id="add-todo"> 
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </form>
+                <section class="container-formulir">
+                    <form class="formulir" id="formulir">
+                        <input type="text" class="value" id="value" placeholder="Type Here"/>
+                        <button type="button" class="btn-add" id="btn-add">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </form>
+                </section>
                 
-                <section class="progress-todo">
-                    <span>
+                <section class="container-todo">
+                    <span class="header-todo">
                         <h2> Progress </h2>
                     </span>
 
-                    <ul>
-                        <li>
-                            <p> Jogging </p>
+                    <ul class="lists">
+                        <li class="list">
+                            <p class="list-title"> Jogging </p>
 
-                            <section class="btn-progress">
-                                <button type="button" id="edit-todo"> 
+                            <section class="container-button">
+                                <button type="button" class="btn-edit" id="btn-edit">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
 
-                                <button type="button" id="done-todo"> 
+                                <button type="button" class="btn-done" id="btn-done"> 
                                     <i class="fa-solid fa-check"></i>
                                 </button>
                             </section>
@@ -362,21 +388,21 @@ class Todo extends HTMLElement {
                     </ul>
                 </section>
 
-                <section class="complete-todo">
-                    <span>
+                <section class="container-todo">
+                    <span class="header-todo">
                         <h2> Complete </h2>
                     </span>
 
-                    <ul>
-                        <li>
-                            <p> Reading Book </p>
+                    <ul class="lists">
+                        <li class="list">
+                            <p class="list-title"> Reading Book </p>
 
-                            <section class="btn-complete">
-                                <button type="button" id="undo-todo"> 
+                            <section class="container-button">
+                                <button type="button" class="btn-undo" id="btn-undo">
                                     <i class="fa-solid fa-rotate-left"></i>
                                 </button>
 
-                                <button type="button" id="delete-todo"> 
+                                <button type="button" class="btn-delete" id="btn-delete">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </section>

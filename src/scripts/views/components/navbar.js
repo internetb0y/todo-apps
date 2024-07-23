@@ -8,11 +8,11 @@ class Navbar extends HTMLElement {
         const media = `
             <style>
                 @media only screen and (max-width: 320px) {
-                    .icon {
+                    .navbar-title {
                         font-size: 25px;
                     }
 
-                    .info {
+                    .dialog-open {
                         min-width: 38px;
                         min-height: 38px;
                         font-size: 18px;
@@ -20,11 +20,11 @@ class Navbar extends HTMLElement {
                 }
 
                 @media only screen and (max-width: 160px) {
-                    .icon {
+                    .navbar-title {
                         font-size: 20px;
                     }
 
-                    .info {
+                    .dialog-open {
                         min-width: 33px;
                         min-height: 33px;
                         font-size: 13px;
@@ -50,7 +50,7 @@ class Navbar extends HTMLElement {
                     padding: 8px 0;
                 }
 
-                .navbar > a {
+                .container-title {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -61,14 +61,7 @@ class Navbar extends HTMLElement {
                     text-decoration: none;
                 }
 
-                .navbar > ul > li {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    list-style: none;
-                }
-
-                .icon {
+                .navbar-title {
                     font-size: 30px;
                     font-family: 'Montserrat';
                     font-weight: 900;
@@ -78,27 +71,34 @@ class Navbar extends HTMLElement {
                     transition: 0.5s;
                 }
 
-                .icon:hover {
+                .navbar-title:hover {
                     transform: scale(1.2);
                 }
 
-                .info {
+                .button-list {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    list-style: none;
+                }
+
+                .button-list > .dialog-open {
                     cursor: pointer;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     min-width: 44px;
                     min-height: 44px;
+                    border: 2px solid #fffffe;
+                    border-radius: 25%;
                     box-sizing: border-box;
                     font-size: 20px;
-                    border: 2px solid #fffffe;
-                    border-radius: 50%;
                     background-color: #232946;
                     color: #fffffe;
                     transition: 0.5s;
                 }
 
-                .info:hover {
+                .button-list > .dialog-open:hover {
                     border: 2px solid #121629;
                     background-color: #eebbc3;
                     color: #232946;
@@ -111,13 +111,13 @@ class Navbar extends HTMLElement {
             
             <header>
                 <nav class="navbar">
-                    <a href="/">
-                        <p class="icon"> Todo </p>
-                        <p class="icon"> Apps </p>
+                    <a class="container-title" href="/">
+                        <p class="navbar-title"> Todo </p>
+                        <p class="navbar-title"> Apps </p>
                     </a>
-                    <ul>
-                        <li> 
-                            <button class="info" id="open-info">
+                    <ul class="container-button">
+                        <li class="button-list">
+                            <button type="button" class="dialog-open" id="dialog-open">
                                 <i class="fa-solid fa-info"></i>
                             </button>
                         </li>

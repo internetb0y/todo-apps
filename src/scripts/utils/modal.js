@@ -1,17 +1,17 @@
 const style = `
     <style>
         dialog {
-            width: 550px; 
-            padding: 8px;
-            left: 50%;
             top: 50%;
+            left: 50%;
             translate: -50% -50%;
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 700;
+            width: 550px;
+            padding: 8px;
             border: 3px solid #121629;
             border-radius: 10px;
             box-shadow: 0 8px #121629;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
             background-color: #fffffe;
         }
 
@@ -35,28 +35,28 @@ const style = `
             border-bottom: 3px solid #121629;
         }
 
-        .dialog-navbar > h2 {
+        .dialog-navbar > .dialog-title {
             padding: 0 5px;
-            font-size: 28px;
             border-left: 5px solid #d4939d;
+            font-size: 30px;
             color: #232946;
         }
 
-        .dialog-navbar > #close-info {
+        .dialog-navbar > #dialog-close {
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
             min-width: 44px;
             min-height: 44px;
+            border: none;
             box-sizing: border-box;
             font-size: 30px;
-            border: none;
             background-color: #fffffe;
             color: #232946;
         }
 
-        .dialog-navbar > #close-info:hover {
+        .dialog-navbar > #dialog-close:hover {
             color: #d4939d;
         }
 
@@ -75,15 +75,17 @@ dialog.innerHTML = `
 
     <article class="dialog-container">
         <section class="dialog-navbar">
-            <h2> About </h2>    
+            <h2 class="dialog-title"> About </h2>
             
-            <button id="close-info">
+            <button class="dialog-close" id="dialog-close">
                 <i class="fa-solid fa-circle-xmark"></i>
             </button>
         </section>
 
         <section class="information">
-            <p> Paragraph </p>
+            <p class="information-detail">
+                Put The Detail Of This Website Here
+            </p>
         </section>
     </article>
     `;
@@ -91,10 +93,10 @@ dialog.innerHTML = `
 const body = document.querySelector('body');
 body.appendChild(dialog);
 
-const openInfo = document.querySelector('#open-info').addEventListener('click', () => {
+const openInfo = document.querySelector('#dialog-open').addEventListener('click', () => {
     dialog.showModal();
 });
 
-const closeInfo = document.querySelector('#close-info').addEventListener('click', () => {
+const closeInfo = document.querySelector('#dialog-close').addEventListener('click', () => {
     dialog.close();
 });

@@ -1,3 +1,20 @@
+/*
+Template
+
+- Cursor
+- Display
+- Position
+- Top, Left, Bottom, & Right
+- Translate
+- Width & Height
+- Margin & Padding
+- Border, Box Shadow & Box Sizing
+- Font, Text & Letter
+- Background & Color
+- Transition & Z-Index
+- Transform
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +28,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
     position: absolute;
 
     min-width: 80vw;
