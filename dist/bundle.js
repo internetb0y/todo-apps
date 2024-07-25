@@ -316,7 +316,24 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `* {
+___CSS_LOADER_EXPORT___.push([module.id, `/*
+Template
+
+- Cursor
+- Display
+- Position
+- Top, Left, Bottom, & Right
+- Translate
+- Width & Height
+- Margin & Padding
+- Border, Box Shadow & Box Sizing
+- Font, Text & Letter
+- Background & Color
+- Transition & Z-Index
+- Transform
+*/
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -330,12 +347,13 @@ body {
     justify-content: flex-start;
     align-items: center;
 
+    position: absolute;
+
     min-width: 80vw;
     min-height: auto;
 
     background-color: #d4d8f0;
-}
-`, ""]);
+}`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -509,7 +527,33 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `@media only screen and (max-width: 500px) {
+    main {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    main {
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 160px) {
+    header {
+        width: 150px;
+    }
+    
+    main {
+        width: 155px;
+    }
+}
+
+@media only screen and (max-width: 155px) {
+    main {
+        width: 150px;
+    }
+}`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -518,13 +562,41 @@ ___CSS_LOADER_EXPORT___.push([module.id, ``, ""]);
 /* 13 */
 /***/ (() => {
 
-class Navbar extends HTMLElement {
+class Header extends HTMLElement {
     constructor () {
-        super()
-        this.connectedCallback()
+        super();
+        this.connectedCallback();
     }
 
     connectedCallback () {
+        const media = `
+            <style>
+                @media only screen and (max-width: 320px) {
+                    .navbar-title {
+                        font-size: 25px;
+                    }
+
+                    .dialog-open {
+                        min-width: 38px;
+                        min-height: 38px;
+                        font-size: 18px;
+                    }
+                }
+
+                @media only screen and (max-width: 160px) {
+                    .navbar-title {
+                        font-size: 20px;
+                    }
+
+                    .dialog-open {
+                        min-width: 33px;
+                        min-height: 33px;
+                        font-size: 13px;
+                    }
+                }
+            </style>
+        `;
+
         const style = `
             <style>
                 header {
@@ -542,7 +614,7 @@ class Navbar extends HTMLElement {
                     padding: 8px 0;
                 }
 
-                .navbar > a {
+                .container-title {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -553,14 +625,7 @@ class Navbar extends HTMLElement {
                     text-decoration: none;
                 }
 
-                .navbar > ul > li {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    list-style: none;
-                }
-
-                .icon {
+                .navbar-title {
                     font-size: 30px;
                     font-family: 'Montserrat';
                     font-weight: 900;
@@ -570,62 +635,610 @@ class Navbar extends HTMLElement {
                     transition: 0.5s;
                 }
 
-                .icon:hover {
+                .navbar-title:hover {
                     transform: scale(1.2);
                 }
 
-                .info {
+                .button-list {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    list-style: none;
+                }
+
+                .button-list > .dialog-open {
                     cursor: pointer;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     min-width: 44px;
                     min-height: 44px;
+                    border: 2px solid #fffffe;
+                    border-radius: 25%;
                     box-sizing: border-box;
                     font-size: 20px;
-                    border: 2px solid #fffffe;
-                    border-radius: 50%;
                     background-color: #232946;
                     color: #fffffe;
+                    transition: 0.5s;
                 }
 
-                .info:hover {
-                    border: 2px solid #232946;
+                .button-list > .dialog-open:hover {
+                    border: 2px solid #121629;
                     background-color: #eebbc3;
                     color: #232946;
                 }
             </style>
-        `
+        `;
 
         this.innerHTML = `
             ${style}
             
             <header>
                 <nav class="navbar">
-                    <a href="index.html">
-                        <p class="icon"> Todo </p>
-                        <p class="icon"> Apps </p>
+                    <a class="container-title" href="/">
+                        <p class="navbar-title"> Todo </p>
+                        <p class="navbar-title"> Apps </p>
                     </a>
-                    <ul>
-                        <li> 
-                            <button class="info" id="info">
+                    <ul class="container-button">
+                        <li class="button-list">
+                            <button type="button" class="dialog-open" id="dialog-open">
                                 <i class="fa-solid fa-info"></i>
                             </button>
                         </li>
                     </ul>
                 </nav>
             </header>
-        `
+
+            ${media}
+        `;
     }
 }
 
-customElements.define('top-content', Navbar)
+customElements.define('head-content', Header);
 
 /***/ }),
 /* 14 */
 /***/ (() => {
 
+class Main extends HTMLElement {
+    constructor () {
+        super();
+        this.connectedCallback();
+    }
 
+    connectedCallback () {
+        const mediaForm = `
+            <style>
+                @media only screen and (max-width: 980px) {
+                    .container-formulir {
+                        width: 630px;
+                    }
+                    
+                    .formulir > .value {
+                        width: 500px;
+                    }
+                }
+
+                @media only screen and (max-width: 780px) {
+                    .container-formulir {
+                        width: 530px;
+                    }
+                
+                    .formulir > .value {
+                        width: 400px;
+                    }
+                }
+
+                @media only screen and (max-width: 680px) {
+                    .container-formulir {
+                        width: 475px;
+                    }
+
+                    .formulir > .value {
+                        width: 370px;
+                    }
+                }
+
+                @media only screen and (max-width: 580px) {
+                    .container-formulir {
+                        width: 360px;
+                    }
+
+                    .formulir > .value {
+                        width: 260px;
+                    }
+                }
+
+                @media only screen and (max-width: 480px) {
+                    .container-formulir {
+                        width: 300px;
+                    }
+
+                    .formulir > .value {
+                        width: 260px;
+                    }
+                }
+
+                @media only screen and (max-width: 320px) {
+                    .container-formulir {
+                        width: 255px;
+                    }
+                    
+                    .formulir > .value {
+                        width: 230px;
+                    }
+                }
+
+                @media only screen and (max-width: 260px) {
+                    .container-formulir {
+                        width: 200px;
+                    }
+                    
+                    .formulir > .value {
+                        width: 180px;
+                        font-size: 30px;
+                    }
+                }
+
+                @media only screen and (max-width: 200px) {
+                    .container-formulir {
+                        width: 150px;
+                    }
+                    
+                    .formulir > .value {
+                        width: 130px;
+                        font-size: 20px;
+                    }
+                }
+            </style>
+        `;
+
+        const mediaTodo = `
+            <style>
+                @media only screen and (max-width: 980px) {
+                    .container-todo > .lists {
+                        width: 620px;
+                    }
+                }
+
+                @media only screen and (max-width: 780px) {
+                    .container-todo > .lists {
+                        width: 520px;
+                    }
+                }
+
+                @media only screen and (max-width: 680px) {
+                    .container-todo > .lists {
+                        width: 470px;
+                    }
+                }
+
+                @media only screen and (max-width: 580px) {
+                    .container-todo > .lists {
+                        width: 350px;
+                    }
+                }
+
+                @media only screen and (max-width: 480px) {                   
+                    .container-todo > .lists {
+                        width: 295px;
+                    }
+
+                    .container-todo > .lists > .list {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .container-todo > .lists > .list > .list-title {
+                        text-align: center;
+                    }
+                }
+
+                @media only screen and (max-width: 320px) {                   
+                    .container-todo > .lists {
+                        width: 250px;
+                    }
+                }
+
+                @media only screen and (max-width: 260px) {
+                    .header-todo {
+                        width: 195px;
+                    }
+                    
+                    .header-todo > h2 {
+                        font-size: 30px;
+                    }
+
+                    .container-todo > .lists {
+                        width: 195px;
+                    }
+                }
+
+                @media only screen and (max-width: 200px) {
+                    .header-todo {
+                        width: 144px;
+                    }    
+                    
+                    .header-todo > h2 {
+                        font-size: 23px;
+                    }
+
+                    .container-todo > .lists {
+                        width: 144px;
+                    }
+
+                    .container-todo > .lists > .list > .list-title {
+                        font-size: 30px;
+                    }
+
+                    .container-button > button {
+                        margin: 5px;
+                    }
+                }
+            </style>
+        `;
+        
+        const style = `
+            <style>
+                main {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 100vw;
+                    min-height: auto;
+                    background-color: #d4d8f0;
+                }
+
+                .container-formulir {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 735px;
+                    height: auto;
+                    margin: 25px 0;
+                    border: 3px solid #121629;
+                    border-radius: 10px;
+                    box-shadow: 0 7px #121629;
+                    background-color: #b8c1ec;
+                    transition: 0.5s;
+                }
+
+                .formulir {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                    background-color: #b8c1ec;
+                    transition: 0.5s;
+                }
+
+                .formulir > .value {
+                    width: 600px;
+                    margin: 15px 10px;
+                    padding: 5px 10px;
+                    border: 3px solid #121629;
+                    border-radius: 15px;
+                    box-shadow: 0 7px #121629;
+                    font-size: 38px;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 700;
+                    background-color: #fffffe;
+                    transition: 0.5s;
+                }
+
+                .formulir > .value:focus {
+                    border: 3px solid #d4939d;
+                    box-shadow: 0 7px #d4939d;
+                    outline: 0;
+                }
+
+                .formulir > .btn-add {
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 44px;
+                    min-height: 44px;
+                    margin: 15px 10px 15px 10px;
+                    padding: 5px 10px;
+                    border: 3px solid #121629;
+                    border-radius: 15px;
+                    box-shadow: 0 7px #121629;
+                    box-sizing: border-box;
+                    font-size: 22px;
+                    background-color: #eebbc3;
+                }
+
+                .formulir > .btn-add:active {
+                    translate: 0 5px;
+                    box-shadow: 0 2px #121629;
+                }
+
+                /* Todo Progress */
+
+                .container-todo {
+                    display: flex;
+                    flex-flow: column wrap;
+                    justify-content: center;
+                    align-items: center;
+                    width: auto;
+                    height: auto;
+                    margin: 25px 0;
+                    border: 3px solid #121629;
+                    border-radius: 10px;
+                    box-shadow: 0 7px #121629;
+                    background-color: #b8c1ec;
+                    transition: 0.5s;
+                }
+
+                .header-todo {
+                    width: 100%;
+                    transition: 0.5s;
+                }
+
+                .header-todo > h2 {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 15px 10px;
+                    padding: 5px 10px;
+                    border: 3px solid #121629;
+                    border-radius: 15px;
+                    font-size: 38px;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 700;
+                    background-color: #d4939d;
+                    color: #fffffe;
+                    transition: 0.5s;
+                }
+
+                .container-todo > .lists {
+                    width: 725px;
+                    transition: 0.5s;
+                }
+
+                .container-todo > .lists > .list {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 15px 10px;
+                    padding: 5px 10px;
+                    border: 3px solid #121629;
+                    border-radius: 15px;
+                    box-shadow: 0 7px #121629;
+                    font-size: 38px;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 700;
+                    background-color: #fffffe;
+                    transition: 0.5s;
+                    list-style: none;
+                }
+
+                .container-button {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .container-button > button {
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 44px;
+                    min-height: 44px;
+                    margin: 15px 10px;
+                    padding: 5px 10px;
+                    border: 3px solid #121629;
+                    border-radius: 15px;
+                    box-shadow: 0 7px #121629;
+                    box-sizing: border-box;
+                    font-size: 22px;
+                    background-color: #eebbc3;
+                }
+
+                .container-button > button:active {
+                    translate: 0 5px;
+                    box-shadow: 0 2px #121629;
+                }
+            </style>
+        `;
+
+        this.innerHTML = `
+            ${style}
+            
+            <main>
+                <section class="container-formulir">
+                    <form class="formulir" id="formulir">
+                        <input type="text" class="value" id="value" placeholder="Type Here"/>
+                        <button type="button" class="btn-add" id="btn-add">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </form>
+                </section>
+                
+                <section class="container-todo">
+                    <span class="header-todo">
+                        <h2> Progress </h2>
+                    </span>
+
+                    <ul class="lists">
+                        <li class="list">
+                            <p class="list-title"> Jogging </p>
+
+                            <section class="container-button">
+                                <button type="button" class="btn-edit" id="btn-edit">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button type="button" class="btn-done" id="btn-done"> 
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                            </section>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="container-todo">
+                    <span class="header-todo">
+                        <h2> Complete </h2>
+                    </span>
+
+                    <ul class="lists">
+                        <li class="list">
+                            <p class="list-title"> Reading Book </p>
+
+                            <section class="container-button">
+                                <button type="button" class="btn-undo" id="btn-undo">
+                                    <i class="fa-solid fa-rotate-left"></i>
+                                </button>
+
+                                <button type="button" class="btn-delete" id="btn-delete">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </section>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+
+            ${mediaForm}
+
+            ${mediaTodo}
+        `;
+    }
+}
+
+customElements.define('main-content', Main);
+
+/***/ }),
+/* 15 */
+/***/ (() => {
+
+class About extends HTMLElement {
+    constructor () {
+        super();
+        this.connectedCallback();
+    }
+
+    connectedCallback () {
+        const style = `
+            <style>
+                dialog {
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                    width: 550px;
+                    padding: 8px;
+                    border: 3px solid #121629;
+                    border-radius: 10px;
+                    box-shadow: 0 8px #121629;
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 700;
+                    background-color: #fffffe;
+                }
+
+                dialog::backdrop {
+                    background-color: rgba(35, 41, 70, 0.4);
+                }
+
+                .dialog-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .dialog-navbar {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    border-bottom: 3px solid #121629;
+                }
+
+                .dialog-navbar > .dialog-title {
+                    padding: 0 5px;
+                    border-left: 5px solid #d4939d;
+                    font-size: 30px;
+                    color: #232946;
+                }
+
+                .dialog-navbar > #dialog-close {
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 44px;
+                    min-height: 44px;
+                    border: none;
+                    box-sizing: border-box;
+                    font-size: 30px;
+                    background-color: #fffffe;
+                    color: #232946;
+                }
+
+                .dialog-navbar > #dialog-close:hover {
+                    color: #d4939d;
+                }
+
+                .information {
+                    width: 100%;
+                    margin: 5px 0;
+                    padding: 5px 0;
+                    color: #232946;
+                }
+            </style>
+        `;
+
+        this.innerHTML = `
+            <dialog>
+                <article class="dialog-container">
+                    <section class="dialog-navbar">
+                        <h2 class="dialog-title"> About </h2>
+                        
+                        <button class="dialog-close" id="dialog-close">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </button>
+                    </section>
+
+                    <section class="information">
+                        <p class="information-detail">
+                            Put The Detail Of This Website Here
+                        </p>
+                    </section>
+                </article>
+            </dialog>
+        `
+    }
+}
+
+customElements.define('dialog-about', About);
+
+/***/ }),
+/* 16 */
+/***/ (() => {
+
+const openInfo = document.querySelector('#dialog-open').addEventListener('click', () => {
+    dialog.showModal();
+});
+
+const closeInfo = document.querySelector('#dialog-close').addEventListener('click', () => {
+    dialog.close();
+});
 
 /***/ })
 /******/ 	]);
@@ -708,15 +1321,23 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _styles_media_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var _views_components_navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _views_components_navbar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_views_components_navbar__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _utils_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
-/* harmony import */ var _utils_modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_utils_modal__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _views_components_head_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
+/* harmony import */ var _views_components_head_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_views_components_head_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _views_components_main_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
+/* harmony import */ var _views_components_main_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_views_components_main_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _views_components_about_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(15);
+/* harmony import */ var _views_components_about_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_views_components_about_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(16);
+/* harmony import */ var _utils_modal__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_utils_modal__WEBPACK_IMPORTED_MODULE_5__);
 // Styles
 
 
 
 // Components
+
+
+
+// Extension Components
 
 
 // Utils

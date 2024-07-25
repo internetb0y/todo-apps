@@ -3,8 +3,11 @@ import '../styles/main.css';
 import '../styles/media.css';
 
 // Components
-import './views/components/navbar';
-import './views/components/todo';
+import './views/components/head.js';
+import './views/components/main.js';
+
+// Extension Components
+import './views/components/about.js';
 
 // Utils
 import './utils/modal';

@@ -74,10 +74,12 @@ class About extends HTMLElement {
                     color: #232946;
                 }
             </style>
-        `;
+        `; 
 
         this.innerHTML = `
-            <dialog>
+            ${style}
+
+            <dialog class="about">
                 <article class="dialog-container">
                     <section class="dialog-navbar">
                         <h2 class="dialog-title"> About </h2>
@@ -94,7 +96,7 @@ class About extends HTMLElement {
                     </section>
                 </article>
             </dialog>
-        `
+        `;
     }
 }
 
