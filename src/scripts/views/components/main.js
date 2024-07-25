@@ -1,4 +1,4 @@
-class Todo extends HTMLElement {
+class Main extends HTMLElement {
     constructor () {
         super();
         this.connectedCallback();
@@ -418,4 +418,4 @@ class Todo extends HTMLElement {
     }
 }
 
-customElements.define('todo-menu', Todo);
+customElements.define('main-content', Main);

@@ -1,4 +1,4 @@
-class Navbar extends HTMLElement {
+class Header extends HTMLElement {
     constructor () {
         super();
         this.connectedCallback();
@@ -130,4 +130,4 @@ class Navbar extends HTMLElement {
     }
 }
 
-customElements.define('top-content', Navbar);
+customElements.define('head-content', Header);
