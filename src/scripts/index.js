@@ -10,4 +10,7 @@ import './views/components/main.js';
 import './views/components/about.js';
 
 // Utils
-import './utils/modal';
+import modal from './utils/modal.js';
+
+// Invoke
+modal();
